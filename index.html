@@ -1,0 +1,84 @@
+<html lang="en"><head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <p id="p_id1">华北水利水电大学李奕龙1</p>
+        <p id="p_id2">华北水利水电大学李奕龙2</p>
+
+        <table id="tb" border="1" width="300px">
+            <tbody><tr align="center" class="tr_color" style="background-color: green;">
+                <td>201820113</td>
+                <td>李奕龙</td>
+                <td>男</td>
+            </tr>
+            <tr align="center" class="tr_color" style="background-color: red;">
+                <td>201820113</td>
+                <td>李奕龙</td>
+                <td>男</td>
+            </tr>
+            <tr align="center" class="tr_color" style="background-color: blue;">
+                <td>201820113</td>
+                <td>李奕龙</td>
+                <td>男</td>
+            </tr>
+            <tr align="center" class="tr_color" style="background-color: yellow;">
+                <td>201820113</td>
+                <td>李奕龙</td>
+                <td>男</td>
+            </tr>
+        </tbody></table>
+
+        <input type="checkbox" name="hobby" value="highschool">高中<br>
+        <input type="checkbox" name="hobby" value="undergraduate">本科<br>
+        <input type="checkbox" name="hobby" value="graduate">研究生<br>
+        <button id="check">确认</button>
+
+        <script>
+            const p1 = document.getElementById("p_id1");
+            p1.onclick = function () {
+                alert("这是第一段");
+            }
+
+            const p2 = document.getElementById("p_id2");
+            p2.onclick = function () {
+                alert("这是第二段");
+            }
+
+            const elementsByClassName = document.getElementsByClassName("tr_color");
+            for (let i = 0; i < elementsByClassName.length; i++) {
+                if (i % 2 == 1) {
+                    elementsByClassName[i].style.backgroundColor = "red";
+                    elementsByClassName[i].onmouseover = function () {
+                        this.style.backgroundColor = "blue";
+                    }
+                    elementsByClassName[i].onmouseout = function () {
+                        this.style.backgroundColor = "yellow";
+                    }
+                } else {
+                    elementsByClassName[i].style.backgroundColor = "blue";
+                    elementsByClassName[i].onmouseover = function () {
+                        this.style.backgroundColor = "red";
+                    }
+                    elementsByClassName[i].onmouseout = function () {
+                        this.style.backgroundColor = "green";
+                    }
+                }
+            }
+
+            const check_btn = document.getElementById("check");
+            check_btn.onclick = function () {
+                let count = 0;
+                let text = '';
+                const elementsByName = document.getElementsByName("hobby");
+                for (let i = 0; i < elementsByName.length; i++) {
+                    if (elementsByName[i].checked){
+                        count++;
+                    }
+                }
+                
+                alert("已选"+count+"个");
+            }
+        </script>
+    
+</body></html>
